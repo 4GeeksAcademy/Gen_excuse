@@ -1,11 +1,17 @@
-import "bootstrap";
-import "./style.css";
 
+function generateExcuse() {
+  const formulario = document.querySelector('#excuseForm')
+  const who = document.getElementById('who').value;
+  const action = document.getElementById('action').value;
+  const what = document.getElementById('what').value;
+  const when = document.getElementById('when').value;
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+  if (who && action && what && when) {
+      const excuse = `${who} ${action} ${what} ${when}.`;
+      document.getElementById('excuseOutput').innerText = excuse;
+  } else {
+      document.getElementById('excuseOutput').innerText = 'Por favor, completa todos los campos para generar una excusa.';
+  }
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  formulario.reset();
+}
